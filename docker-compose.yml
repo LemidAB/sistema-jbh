@@ -1,0 +1,36 @@
+version: "3.1"
+services:
+    db-jbh:
+        image: mariadb:10.5  # Usamos la imagen de MariaDB 10.5
+        ports: 
+            - "3306:3306"
+        environment:
+            MYSQL_DATABASE: jbh_bd
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test 
+        volumes:
+            - ./dump:/docker-entrypoint-initdb.d
+            - ./conf:/etc/mysql/conf.d
+            - persistent:/var/lib/mysql
+        networks:
+            - default
+    www-jbh:
+        build: .
+        ports: 
+            - "80:80"
+        volumes:
+            - ./app:/var/www/html
+        networks:
+            - default
+    phpmyadmin-jbh:
+        image: phpmyadmin/phpmyadmin
+        links: 
+            - db-jbh:db
+        ports:
+            - 8000:80
+        environment:
+            MYSQL_USER: root
+            MYSQL_PASSWORD: test
+            MYSQL_ROOT_PASSWORD: test 
+volumes:
+    persistent:
