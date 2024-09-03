@@ -19,60 +19,64 @@ class ControladorUsuarios{
 				$item = "usuario";
 				$valor = $_POST["ingUsuario"];
 
+				echo $valor;
+
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
-				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
+				echo $respuesta;
 
-					if($respuesta["estado"] == 1){
+				// if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
 
-						$_SESSION["iniciarSesion"] = "ok";
-						$_SESSION["id"] = $respuesta["id"];
-						$_SESSION["nombre"] = $respuesta["nombre"];
-						$_SESSION["usuario"] = $respuesta["usuario"];
-						$_SESSION["foto"] = $respuesta["foto"];
-						$_SESSION["perfil"] = $respuesta["perfil"];
+				// 	if($respuesta["estado"] == 1){
 
-						/*=============================================
-						REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN
-						=============================================*/
+				// 		$_SESSION["iniciarSesion"] = "ok";
+				// 		$_SESSION["id"] = $respuesta["id"];
+				// 		$_SESSION["nombre"] = $respuesta["nombre"];
+				// 		$_SESSION["usuario"] = $respuesta["usuario"];
+				// 		$_SESSION["foto"] = $respuesta["foto"];
+				// 		$_SESSION["perfil"] = $respuesta["perfil"];
 
-						date_default_timezone_set('America/Bogota');
+				// 		/*=============================================
+				// 		REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN
+				// 		=============================================*/
 
-						$fecha = date('Y-m-d');
-						$hora = date('H:i:s');
+				// 		date_default_timezone_set('America/Bogota');
 
-						$fechaActual = $fecha.' '.$hora;
+				// 		$fecha = date('Y-m-d');
+				// 		$hora = date('H:i:s');
 
-						$item1 = "ultimo_login";
-						$valor1 = $fechaActual;
+				// 		$fechaActual = $fecha.' '.$hora;
 
-						$item2 = "id";
-						$valor2 = $respuesta["id"];
+				// 		$item1 = "ultimo_login";
+				// 		$valor1 = $fechaActual;
 
-						$ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
+				// 		$item2 = "id";
+				// 		$valor2 = $respuesta["id"];
 
-						if($ultimoLogin == "ok"){
+				// 		$ultimoLogin = ModeloUsuarios::mdlActualizarUsuario($tabla, $item1, $valor1, $item2, $valor2);
 
-							echo '<script>
+				// 		if($ultimoLogin == "ok"){
 
-								window.location = "inicio";
+				// 			echo '<script>
 
-							</script>';
+				// 				window.location = "inicio";
 
-						}				
+				// 			</script>';
+
+				// 		}				
 						
-					}else{
+				// 	}else{
 
-						echo '<br>
-							<div class="alert alert-danger">El usuario aún no está activado</div>';
+				// 		echo '<br>
+				// 			<div class="alert alert-danger">El usuario aún no está activado</div>';
 
-					}		
+				// 	}		
 
-				}else{
+				// }else{
 
-					echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
+				// 	echo '<br><div class="alert alert-danger">Error al ingresar, vuelve a intentarlo</div>';
 
-				}
+				// }
 
 			}	
 
