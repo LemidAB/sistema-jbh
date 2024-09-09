@@ -2,8 +2,8 @@
 
 Class Conexion{
     static public function conectar(){
-        $host = 'db-jbc'; // Nombre del servicio de la base de datos en Docker Compose
-        $dbname = 'jbc_bd'; // Nombre de la base de datos definida en Docker Compose
+        $host = 'db-jbh'; // Nombre del servicio de la base de datos en Docker Compose
+        $dbname = 'jbh_bd'; // Nombre de la base de datos definida en Docker Compose
         $user = 'root'; // Nombre de usuario definido en Docker Compose
         $password = 'test'; // Contraseña definida en Docker Compose
 
