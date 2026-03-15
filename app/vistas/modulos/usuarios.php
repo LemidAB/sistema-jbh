@@ -58,7 +58,7 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
            <th style="width:10px">#</th>
            <th>Nombre</th>
            <th>Usuario</th>
-           <th>Foto</th>
+           <!-- <th>Foto</th> -->
            <th>Perfil</th>
            <th>Estado</th>
            <th>Último login</th>
@@ -84,15 +84,16 @@ if($_SESSION["perfil"] == "Especial" || $_SESSION["perfil"] == "Vendedor"){
                   <td>'.$value["nombre"].'</td>
                   <td>'.$value["usuario"].'</td>';
 
-                  if($value["foto"] != ""){
+                  // ELIMINADO FOTO
+                  // if($value["foto"] != ""){
 
-                    echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
+                  //   echo '<td><img src="'.$value["foto"].'" class="img-thumbnail" width="40px"></td>';
 
-                  }else{
+                  // }else{
 
-                    echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
+                  //   echo '<td><img src="vistas/img/usuarios/default/anonymous.png" class="img-thumbnail" width="40px"></td>';
 
-                  }
+                  // }
 
                   echo '<td>'.$value["perfil"].'</td>';
 
