@@ -138,6 +138,21 @@
 
 		}
 
+		if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Vendedor"){
+
+    		echo '<li>
+
+        		<a href="pedidos">
+
+            		<i class="fa fa-shopping-cart"></i>
+            		<span>Pedidos</span>
+
+        		</a>
+
+    		</li>';
+		}
+
+
 		?>
 
 		</ul>
